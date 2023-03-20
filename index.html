@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TilbudOppskrifter</title>
+    <link rel="stylesheet" href="style.css">
+	<style>
+		.box {
+			display: block;
+			width: 100%;
+			height: 150px;
+			margin: 10px auto;
+			border: 2px solid black;
+			cursor: pointer;
+			text-align: center;
+			vertical-align: middle;
+			line-height: 150px;
+			font-weight: bold;
+		}
+
+		.box img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>TilbudOppskrifter</h1>
+	<p>Velg butikkene i nærheten av deg:</p>
+	<div id="boxes">
+		<div class="box" id="box1" onclick="selectBox(1)">
+			<img src="rema.png" alt="Box 1">
+		</div>
+		<div class="box" id="box2" onclick="selectBox(2)">
+			<img src="extra.png" alt="Box 2">
+		</div>
+		<div class="box" id="box3" onclick="selectBox(3)">
+			<img src="prix.png" alt="Box 3">
+		</div>
+		<div class="box" id="box4" onclick="selectBox(4)">
+			<img src="bunnpris.png" alt="Box 4">
+		</div>
+		<div class="box" id="box5" onclick="selectBox(5)">
+			<img src="box5.png" alt="Box 5">
+		</div>
+		<div class="box" id="box6" onclick="selectBox(6)">
+			<img src="box6.png" alt="Box 6">
+		</div>
+		<div class="box" id="box7" onclick="selectBox(7)">
+			<img src="box7.png" alt="Box 7">
+		</div>
+		<div class="box" id="box8" onclick="selectBox(8)">
+			<img src="box8.png" alt="Box 8">
+		</div>
+		<div class="box" id="box9" onclick="selectBox(9)">
+			<img src="box9.png" alt="Box 9">
+		</div>
+	</div>
+	<button onclick="nextPage()" style="position: fixed; bottom: 10px; right: 10px;">Next</button>
+	<script>
+		var selectedBoxes = [];
+
+		function selectBox(boxNum) {
+			var box = document.getElementById("box" + boxNum);
+			if (box.classList.contains("selected")) {
+				box.classList.remove("selected");
+				selectedBoxes.splice(selectedBoxes.indexOf(boxNum), 1);
+			} else {
+				box.classList.add("selected");
+				selectedBoxes.push(boxNum);
+			}
+		}
+
+		function nextPage() {
+			// Do something with selectedBoxes here, e.g. send to server via AJAX
+			// then navigate to the next page
+			window.location.href = "nextpage.html";
+		}
+	</script>
+</body>
+</html>
